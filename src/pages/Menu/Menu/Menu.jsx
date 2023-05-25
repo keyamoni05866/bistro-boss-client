@@ -31,13 +31,13 @@ const Menu = () => {
      <MenuCategory items={offered}></MenuCategory>
      {/* deserts */}
            <MenuCategory items={desert}
-              title="Desert"
-              subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+              title="desert"
+              subTitle="Sugar,Flour, Eggs, Butter, Chocolate"
               img={desertImg}
            ></MenuCategory>
 {/* soups */}
 <MenuCategory items={soup}
-              title="Soup"
+              title="soup"
               subTitle="Mushrooms,Onion, Garlic, Mushrooms,Butter or olive oil."
               img={soupImg}
            ></MenuCategory>
@@ -45,10 +45,11 @@ const Menu = () => {
            {/* pizza */}
 
            <MenuCategory items={pizza}
-              title="Pizza"
+              title="pizza"
               subTitle="Pizza sauce,Cheese, Pepperoni, Mushrooms,Olives."
               img={pizzaImg}
            ></MenuCategory>
+           {/* salad */}
            <MenuCategory items={salad}
               title="salad"
               subTitle="Pizza sauce,Cheese, Pepperoni, Mushrooms,Olives."
