@@ -7,10 +7,14 @@ import Featured from '../Featured/Featured';
 import Testimonials from '../Testimonials/Testimonials';
 import HomeCard from '../HomeCard/HomeCard';
 import CallSection from '../CallSection/CallSection';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+                <Helmet>
+                <title>Bistro Boss | Home</title>
+            </Helmet>
        <div >
        <Banner></Banner>
      
