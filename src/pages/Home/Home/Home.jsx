@@ -5,6 +5,8 @@ import About from '../About/About';
 import PopularMenu from '../PopularMenu/PopularMenu';
 import Featured from '../Featured/Featured';
 import Testimonials from '../Testimonials/Testimonials';
+import HomeCard from '../HomeCard/HomeCard';
+import CallSection from '../CallSection/CallSection';
 
 const Home = () => {
     return (
@@ -20,6 +22,8 @@ const Home = () => {
  </div>
  <About></About>
  <PopularMenu></PopularMenu>
+ <CallSection></CallSection>
+ <HomeCard></HomeCard>
  <Featured></Featured>
  <Testimonials></Testimonials>
         </div>
