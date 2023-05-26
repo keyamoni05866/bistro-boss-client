@@ -12,8 +12,6 @@ const Order = () => {
     const {category} = useParams();
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
-   
-
     const [menu] =  useMenu();
     const desert = menu.filter(item => item.category === 'dessert')
     const soup = menu.filter(item => item.category === 'soup')
