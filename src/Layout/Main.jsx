@@ -10,7 +10,7 @@ const Main = () => {
 
 
     return (
-        <div>
+        <div className='max-w-screen-xl mx-auto'>
             {noHeaderFooter ||  <Navbar></Navbar>}
             <Outlet></Outlet>
            {noHeaderFooter ||  <Footer></Footer>}
