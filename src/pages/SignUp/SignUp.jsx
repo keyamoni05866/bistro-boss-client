@@ -4,6 +4,8 @@ import loginImg2 from "../../../src/assets/others/authentication1.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../Routes/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const SignUp = () => {
 const {createUser,updateUserProfile} = useContext(AuthContext)
 const navigate = useNavigate();
@@ -21,6 +23,33 @@ const navigate = useNavigate();
             console.log(loggedUser);
             updateUserProfile(name,photo)
             .then(() =>{
+               const savedUser = {name, email}
+              fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers:{
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(savedUser)
+              })
+              .then(res => res.json())
+              .then(data =>{
+
+                if(data.insertedId){
+                  form.reset();
+                  Swal.fire({
+                    title: 'User Created successfully',
+                    showClass: {
+                      popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                      popup: 'animate__animated animate__fadeOutUp'
+                    }
+                  })
+                }
+
+              })
+           
+              
 
             })
             .catch(error => console.error(error))
@@ -35,7 +64,7 @@ const navigate = useNavigate();
             </Helmet>
         <div className="hero backgroundImg min-h-screen ">
       <div className=" w-3/4  flex rounded-lg shadow-2xl bg-base-100 relative">
-        <img src={loginImg} alt="" className=" w-full h-[620px] rounded-lg  " />
+        <img src={loginImg} alt="" className=" w-full h-[680px] rounded-lg  " />
 
         <div className="absolute  left-24  top-36 ">
           <img src={loginImg2} alt="" className=" w-96 h-58" />
@@ -101,7 +130,9 @@ const navigate = useNavigate();
             />
          </div>
          <p className="text-center text-[#D1A054] font-semibold mt-3">Already Registered? <Link to="/login">Go to login</Link></p>
+         <p className='text-center '>Or Sign Up with</p>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

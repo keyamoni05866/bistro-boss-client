@@ -11,6 +11,7 @@ import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const {signIn} = useContext(AuthContext);
@@ -62,7 +63,7 @@ const Login = () => {
             </Helmet>
     <div className="hero backgroundImg min-h-screen ">
       <div className=" w-3/4  flex rounded-lg shadow-2xl bg-base-100 relative">
-        <img src={loginImg} alt="" className=" w-full h-[620px] rounded-lg  " />
+        <img src={loginImg} alt="" className=" w-full h-[650px] rounded-lg  " />
 
         <div className="absolute  left-24 top-36 ">
           <img src={loginImg2} alt="" className=" w-96 h-58" />
@@ -119,7 +120,9 @@ const Login = () => {
             />
          </div>
          <p className="text-center text-[#D1A054] font-semibold mt-3">New here ? <Link to="/signUp">Create a New Account</Link></p>
+         <p className='text-center '>Or Sign with</p>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
