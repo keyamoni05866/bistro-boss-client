@@ -2,10 +2,12 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaBars , FaShopify, FaEnvelope, FaUtensilSpoon, FaUser, FaUsers, FaBook, FaQuoteLeft} from 'react-icons/fa';
 import useCart from '../Hooks/useCart';
+import useAdmin from '../Hooks/useAdmin';
 const Dashboard = () => {
   const [cart] = useCart();
   // TODO: load data from the server to have dynamic isAdmin based on
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
     return (
         <div className="drawer drawer-mobile ">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -48,7 +50,7 @@ const Dashboard = () => {
       <li><NavLink to="/dashboard/reviews"> <FaQuoteLeft></FaQuoteLeft>
       
      Add Reviews
-      <div className="badge badge-secondary"></div>
+    
       </NavLink></li>
         </>
       }
