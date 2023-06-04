@@ -4,12 +4,14 @@ import useCart from "../../../Hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
 
 import Swal from "sweetalert2";
+import SectionTitles from "../../../components/SectionTitles/SectionTitles";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     // console.log(id);
     Swal.fire({
       title: "Are you sure?",
@@ -27,7 +29,7 @@ const MyCart = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              refetch()
+              refetch();
               Swal.fire("Deleted!", "Your food has been deleted.", "success");
             }
           });
@@ -35,7 +37,11 @@ const MyCart = () => {
     });
   };
   return (
-    <div className=" w-[800px] px-8 py-8">
+    <div className=" px-16">
+      <SectionTitles
+        subHeading="---My Cart---"
+        heading="Wanna add more?"
+      ></SectionTitles>
       <Helmet>
         <title>Bistro Boss | My Cart</title>
       </Helmet>
@@ -43,7 +49,10 @@ const MyCart = () => {
       <div className="text-2xl uppercase font-semibold flex justify-between my-8  items-center">
         <h2>Total Items: {cart.length}</h2>
         <h2>Total Price: ${total}</h2>
-        <button className="btn bg-[#D1A054] btn-sm">Pay</button>
+        <Link to="/dashboard/payment">
+          {" "}
+          <button className="btn bg-[#D1A054] btn-sm">Pay</button>
+        </Link>
       </div>
 
       <table className="table  w-full ">
